@@ -1,17 +1,16 @@
 <script>
   import Navbar from '$lib/componenets/Navbar.svelte';
-  import UserView from '$lib/views/UserView.svelte';
+  import { currentUser } from '$lib/pocketbase';
   import LoginView from '$lib/views/LoginView.svelte';
-    import { currentUser } from '$lib/pocketbase';
 </script>
 
 {#if $currentUser}
   <div class="h-full flex flex-col box-border">
     <Navbar />
-    <UserView />
+    <main class="h-full m-2 rounded-xl shadow-2xl p-2 bg-stone-900 box-border">
+      <h1 class="text-center font-black p-4 text-4xl">Bolt</h1>
+    </main>
   </div>
 {:else}
-  <div class="h-full flex flex-col box-border">
-    <LoginView />
-  </div>
+  <LoginView />
 {/if}
